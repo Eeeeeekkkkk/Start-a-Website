@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/templatemo-style.css" />
+    <title>animations 4</title>
+  </head>
+<!--
+Sided Template
+https://templatemo.com/tm-527-sided
+-->
+  <body>
+    
+   
+      <!-- Logo & Intro -->
+      <section id="logo" class="tm-section-logo">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12 offset-sm-0 col-md-6 offset-md-6">
+              <div class="tm-site-name-container">
+                
+                  <h1 class="text-uppercase tm-text-primary tm-site-name">
+                    animations
+                  </h1>
+                  <p class="tm-text-primary tm-site-description">
+                    
+                  </p>
+              
+              </div>
+            </div>
+          </div>
+      
+      </section>
+
+    
+  
+      
+  </body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <title>animation 4</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  let rect1, rect2;
+
+  function setup() {
+    createCanvas(400, 200);
+    rect1 = { x: 50, y: 50, w: 100, h: 100, color: color(255, 0, 0) }; // Red
+    rect2 = { x: 200, y: 50, w: 100, h: 100, color: color(0, 0, 255) }; // Blue
+  }
+
+  function draw() {
+    background(320);
+
+    // Check if the mouse is over rect1
+    if (isMouseOver(rect1)) {
+      rect1.color = color(255, 165, 0); // Orange
+    } else {
+      rect1.color = color(255, 0, 0); // Red
+    }
+
+    // Check if the mouse is over rect2
+    if (isMouseOver(rect2)) {
+      rect2.color = color(255, 255, 0); // Yellow
+    } else {
+      rect2.color = color(0, 0, 255); // Blue
+    }
+
+    // Draw rectangles
+    fill(rect1.color);
+    rect(rect1.x, rect1.y, rect1.w, rect1.h);
+
+    fill(rect2.color);
+    rect(rect2.x, rect2.y, rect2.w, rect2.h);
+  }
+
+  function isMouseOver(r) {
+    return mouseX > r.x && mouseX < r.x + r.w && mouseY > r.y && mouseY < r.y + r.h;
+  }
+</script>
+
+</body>
+</html>

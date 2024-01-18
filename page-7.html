@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/templatemo-style.css" />
+    <title>animations 7</title>
+  </head>
+<!--
+Sided Template
+https://templatemo.com/tm-527-sided
+-->
+  <body>
+    
+   
+      <!-- Logo & Intro -->
+      <section id="logo" class="tm-section-logo">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12 offset-sm-0 col-md-6 offset-md-6">
+              <div class="tm-site-name-container">
+                
+                  <h1 class="text-uppercase tm-text-primary tm-site-name">
+                    animations
+                  </h1>
+                  <p class="tm-text-primary tm-site-description">
+                    
+                  </p>
+              
+              </div>
+            </div>
+          </div>
+      
+      </section>
+
+    
+  
+      
+  </body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holographic P5.js Animation</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #121212;
+        }
+
+        canvas {
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script>
+        let particles = [];
+
+        function setup() {
+            createCanvas(400, 400);
+            for (let i = 0; i < 100; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function draw() {
+            background(18, 18, 18);
+
+            for (let particle of particles) {
+                particle.update();
+                particle.display();
+            }
+        }
+
+        class Particle {
+            constructor() {
+                this.position = createVector(random(width), random(height));
+                this.velocity = createVector(random(-2, 2), random(-2, 2));
+                this.color = color(random(150, 255), random(150, 255), random(150, 255), 150);
+            }
+
+            update() {
+                this.position.add(this.velocity);
+
+                if (this.position.x < 0 || this.position.x > width) {
+                    this.velocity.x *= -1;
+                }
+
+                if (this.position.y < 0 || this.position.y > height) {
+                    this.velocity.y *= -1;
+                }
+            }
+
+            display() {
+                noStroke();
+                fill(this.color);
+                ellipse(this.position.x, this.position.y, 20, 20);
+            }
+        }
+    </script>
+</body>
+</html>
+

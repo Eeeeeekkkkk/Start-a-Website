@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/templatemo-style.css" />
+    <title>animations 4</title>
+  </head>
+<!--
+Sided Template
+https://templatemo.com/tm-527-sided
+-->
+  <body>
+    
+   
+      <!-- Logo & Intro -->
+      <section id="logo" class="tm-section-logo">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12 offset-sm-0 col-md-6 offset-md-6">
+              <div class="tm-site-name-container">
+                
+                  <h1 class="text-uppercase tm-text-primary tm-site-name">
+                    animations
+                  </h1>
+                  <p class="tm-text-primary tm-site-description">
+                    
+                  </p>
+              
+              </div>
+            </div>
+          </div>
+      
+      </section>
+
+    
+  
+      
+  </body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <title>Fulsome Animation with p5.js</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  let path = [];
+  let pathLength = 100;
+  let angle = 0;
+
+  function setup() {
+    createCanvas(600, 400);
+    frameRate(60);
+  }
+
+  function draw() {
+    background(320);
+
+    // Move the path
+    angle += 0.02;
+    let x = width / 2 + cos(angle) * 100;
+    let y = height / 2 + sin(angle) * 100;
+
+    // Add a new point to the path
+    path.push({ x, y });
+
+    // Trim the path to a certain length
+    if (path.length > pathLength) {
+      path.shift();
+    }
+
+    // Draw the path
+    noFill();
+    beginShape();
+    for (let i = 0; i < path.length; i++) {
+      let p = path[i];
+      stroke(0, 0, 255, map(i, 0, path.length, 6, 255));
+      ellipse(p.x, p.y, 8, 8);
+      vertex(p.x, p.y);
+    }
+    endShape();
+  }
+</script>
+
+</body>
+</html>
